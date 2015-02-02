@@ -7,7 +7,7 @@
   <meta name="author" content="Stream">
   
   <meta name="description" content="Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。
-这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行">
+这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得C语言有了面向对象的能力。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -61,7 +61,7 @@
   <div class="post-content">
     <header>
       
-      <time datetime="2015-02-02T13:47:23.000Z"><a href="/2015/02/02/代码测试/">周一, 2月 2 2015, 9:47:23 晚上</a></time>
+      <time datetime="2015-02-02T15:01:00.000Z"><a href="/2015/02/02/oc_runtime/">周一, 2月 2 2015, 11:01:00 晚上</a></time>
 
   
     <h1 class="title">Objective-C Runtime 运行时之一：类与对象</h1>
@@ -77,6 +77,7 @@
         <hr>
 <p>Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。</p>
 <p>这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得C语言有了面向对象的能力。</p>
+<a id="more"></a>
 <h4 id="Runtime库主要做下面几件事：">Runtime库主要做下面几件事：</h4>
 <ol>
 <li>封装：在这个库中，对象可以用C语言中的结构体表示，而方法可以用C函数来实现，另外再加上了一些额外的特性。这些结构体和函数被runtime函数封装后，我们就可以在程序运行时创建，检查，修改类、对象和它们的方法了。</li>
@@ -148,10 +149,8 @@
           <div class="clearfix"></div>
           <nav id="pagination">
   
-    <a href="/2015/02/02/markdown教程/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
   
-  
-    <a href="/2015/01/28/hello/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+    <a href="/2015/02/02/markdown教程/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
@@ -167,7 +166,7 @@
 
   
       <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2015/02/02/代码测试/"></div>
+<div class="ds-thread" data-thread-key="/2015/02/02/oc_runtime/"></div>
 <!-- Duoshuo Comment END -->
   
 </section>
