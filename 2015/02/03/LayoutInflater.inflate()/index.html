@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LayoutInflater.inflate() | 赫拉的诅咒</title>
+  <meta name="author" content="Stream">
+  
+  <meta name="description" content="View.inflate(…)同样是调用LayoutInflater.inflate(…)
+1234public static View inflate(Context context, int resource, ViewGroup root) {	LayoutInflater factory =">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="LayoutInflater.inflate()"/>
+  <meta property="og:site_name" content="赫拉的诅咒"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="赫拉的诅咒" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-03T06:34:52.000Z"><a href="/2015/02/03/LayoutInflater.inflate()/">周二, 2月 3 2015, 2:34:52 下午</a></time>
+
+  
+    <h1 class="title">LayoutInflater.inflate()</h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>View.inflate(…)同样是调用LayoutInflater.inflate(…)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">inflate</span>(Context context, <span class="keyword">int</span> resource, ViewGroup root) {</div><div class="line">	LayoutInflater factory = LayoutInflater.<span class="keyword">from</span>(context);</div><div class="line">	<span class="keyword">return</span> factory.inflate(resource, root);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>分析下LyoutInflater.inflate的四个方法：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">View <span class="variable">v1 =</span> inflater.inflate(R.layout.el_include, <span class="constant">null</span>);</div><div class="line">View <span class="variable">v3 =</span> inflater.inflate(R.layout.el_include, itemGroup, <span class="constant">false</span>);</div><div class="line">    </div><div class="line">View <span class="variable">v2 =</span> inflater.inflate(R.layout.el_include, itemGroup);</div><div class="line">View <span class="variable">v4 =</span> inflater.inflate(R.layout.el_include, itemGroup, <span class="constant">true</span>);</div></pre></td></tr></table></figure>
+
+<p>测试结果是：</p>
+<ol>
+<li>V1和V3在Activity里显示效果一样，itemGroup结构不变，V1和V3都是R.layout.el_include里的View对象。</li>
+<li>V2和V4在Activity里显示效果一样，itemGroup添加了R.layout.el_include里的内容，V2和V4对象都是加了R.layout.el_include的itemGroup。</li>
+<li>v1是默认layoutParams,v2、v3和v4是R.layout.el_include设置好的layoutParams，</li>
+</ol>
+<p>源码摘要：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">public View inflate(XmlPullParser parser, ViewGroup root, boolean attachToRoot) {</div><div class="line">	···</div><div class="line">	View result = root;</div><div class="line">	View temp;</div><div class="line">	final AttributeSet attrs = Xml.asAttributeSet(parser);</div><div class="line"></div><div class="line">	//好吧，我跟下去看了看，绕呀绕到了</div><div class="line">	//public <span class="literal">T</span> newInstance(Object... args) {</div><div class="line">	//<span class="keyword">return</span> constructNative (args, declaringClass, parameterTypes, slot, flag);}</div><div class="line">	//大概意思是：恩我掉native建了一个view ···</div><div class="line">	temp = createViewFromTag(root, name, attrs);</div><div class="line">	<span class="keyword">...</span>	</div><div class="line">	<span class="keyword">if</span> (root != null) {</div><div class="line">		//获得定义好的layoutParams</div><div class="line">		params = root.generateLayoutParams(attrs);</div><div class="line">		<span class="keyword">if</span> (!attachToRoot) {</div><div class="line">			//当root存在 且不将parser添加到root时，将layoutParams设置到temp</div><div class="line">			temp.setLayoutParams(params);</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">...</span></div><div class="line">	//存在且添加，将temp按照原layoutParams添加到root且返回root</div><div class="line">	<span class="keyword">if</span> (root != null && attachToRoot) {</div><div class="line">		root.addView(temp, params);</div><div class="line">	}</div><div class="line">	//不存在或不添加，返回一个默认layoutParams的temp</div><div class="line">	<span class="keyword">if</span> (root == null || !attachToRoot) {</div><div class="line">		result = temp;</div><div class="line">	}</div><div class="line">	<span class="keyword">...</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+  
+    <a href="/2015/02/02/oc_runtime/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2015/02/03/LayoutInflater.inflate()/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2015 Stream
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
+<script src="/js/gallery.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"null"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>

@@ -88,6 +88,77 @@
   <div class="post-content">
     <header>
       
+      <time datetime="2015-02-03T06:34:52.000Z"><a href="/2015/02/03/LayoutInflater.inflate()/">周二, 2月 3 2015, 2:34:52 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/03/LayoutInflater.inflate()/">LayoutInflater.inflate()</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>View.inflate(…)同样是调用LayoutInflater.inflate(…)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">inflate</span>(Context context, <span class="keyword">int</span> resource, ViewGroup root) {</div><div class="line">	LayoutInflater factory = LayoutInflater.<span class="keyword">from</span>(context);</div><div class="line">	<span class="keyword">return</span> factory.inflate(resource, root);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>分析下LyoutInflater.inflate的四个方法：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">View <span class="variable">v1 =</span> inflater.inflate(R.layout.el_include, <span class="constant">null</span>);</div><div class="line">View <span class="variable">v3 =</span> inflater.inflate(R.layout.el_include, itemGroup, <span class="constant">false</span>);</div><div class="line">    </div><div class="line">View <span class="variable">v2 =</span> inflater.inflate(R.layout.el_include, itemGroup);</div><div class="line">View <span class="variable">v4 =</span> inflater.inflate(R.layout.el_include, itemGroup, <span class="constant">true</span>);</div></pre></td></tr></table></figure>
+
+<p>测试结果是：</p>
+<ol>
+<li>V1和V3在Activity里显示效果一样，itemGroup结构不变，V1和V3都是R.layout.el_include里的View对象。</li>
+<li>V2和V4在Activity里显示效果一样，itemGroup添加了R.layout.el_include里的内容，V2和V4对象都是加了R.layout.el_include的itemGroup。</li>
+<li>v1是默认layoutParams,v2、v3和v4是R.layout.el_include设置好的layoutParams，</li>
+</ol>
+<p>源码摘要：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">public View inflate(XmlPullParser parser, ViewGroup root, boolean attachToRoot) {</div><div class="line">	···</div><div class="line">	View result = root;</div><div class="line">	View temp;</div><div class="line">	final AttributeSet attrs = Xml.asAttributeSet(parser);</div><div class="line"></div><div class="line">	//好吧，我跟下去看了看，绕呀绕到了</div><div class="line">	//public <span class="literal">T</span> newInstance(Object... args) {</div><div class="line">	//<span class="keyword">return</span> constructNative (args, declaringClass, parameterTypes, slot, flag);}</div><div class="line">	//大概意思是：恩我掉native建了一个view ···</div><div class="line">	temp = createViewFromTag(root, name, attrs);</div><div class="line">	<span class="keyword">...</span>	</div><div class="line">	<span class="keyword">if</span> (root != null) {</div><div class="line">		//获得定义好的layoutParams</div><div class="line">		params = root.generateLayoutParams(attrs);</div><div class="line">		<span class="keyword">if</span> (!attachToRoot) {</div><div class="line">			//当root存在 且不将parser添加到root时，将layoutParams设置到temp</div><div class="line">			temp.setLayoutParams(params);</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">...</span></div><div class="line">	//存在且添加，将temp按照原layoutParams添加到root且返回root</div><div class="line">	<span class="keyword">if</span> (root != null && attachToRoot) {</div><div class="line">		root.addView(temp, params);</div><div class="line">	}</div><div class="line">	//不存在或不添加，返回一个默认layoutParams的temp</div><div class="line">	<span class="keyword">if</span> (root == null || !attachToRoot) {</div><div class="line">		result = temp;</div><div class="line">	}</div><div class="line">	<span class="keyword">...</span></div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/03/LayoutInflater.inflate()/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/03/LayoutInflater.inflate()/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/03/LayoutInflater.inflate()/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
       <time datetime="2015-02-02T15:01:00.000Z"><a href="/2015/02/02/oc_runtime/">周一, 2月 2 2015, 11:01:00 晚上</a></time>
 
   
