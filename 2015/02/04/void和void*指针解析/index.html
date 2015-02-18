@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello world | 赫拉的诅咒</title>
+  <title>void及void*指针解析 | 赫拉的诅咒</title>
   <meta name="author" content="Stream">
   
-  <meta name="description" content="大家好 — 我是Stream,这是我自己的博客
-导语:
+  <meta name="description" content="void的含义:
+void即“无类型”，void *则为“无类型指针”，可以指向任何数据类型。
+void指针使用规范
 
-我会从腾讯空间 陆续将文章转移过来。
-
-第一，认识Markdown
-在刚才的导语里提到，Markdown是一种用来写作轻量级【标记语言】，它的简洁语法替代版本，而不像我们用文字处理软件Word或Pages有大量的排版、文体设置。它使我们专心与">
+oid指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值。例如：   int * pint;
+ void *pvoid;
+ //不过不能 pint= pvoi">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello world"/>
+  <meta property="og:title" content="void及void*指针解析"/>
   <meta property="og:site_name" content="赫拉的诅咒"/>
 
   
@@ -66,10 +66,10 @@
   <div class="post-content">
     <header>
       
-      <time datetime="2015-01-28T06:26:06.000Z"><a href="/2015/01/28/hello/">周三, 1月 28 2015, 2:26:06 下午</a></time>
+      <time datetime="2015-02-04T11:10:42.000Z"><a href="/2015/02/04/void和void*指针解析/">周三, 2月 4 2015, 7:10:42 晚上</a></time>
 
   
-    <h1 class="title">Hello world</h1>
+    <h1 class="title">void及void*指针解析</h1>
   
 
 
@@ -79,14 +79,40 @@
     </header>
     <div class="entry">
       
-        <h1 id="大家好_—_我是Stream,这是我自己的博客">大家好 — 我是Stream,这是我自己的博客</h1>
-<h3 id="导语:">导语:</h3>
-<blockquote>
-<p>我会从<a href="http://user.qzone.qq.com/258888733/" target="_blank" rel="external">腾讯空间</a> 陆续将文章转移过来。</p>
-</blockquote>
-<h2 id="第一，认识Markdown">第一，认识Markdown</h2>
-<p>在刚才的导语里提到，Markdown是一种用来写作轻量级【标记语言】，它的简洁语法替代版本，而不像我们用文字处理软件<em>Word</em>或<em>Pages</em>有大量的排版、文体设置。它使我们专心与码字，用【标记】语法、来代替常见的版本格式。</p>
-
+        <hr>
+<h3 id="void的含义:">void的含义:</h3>
+<p>void即“无类型”，void *则为“无类型指针”，可以指向任何数据类型。</p>
+<h3 id="void指针使用规范">void指针使用规范</h3>
+<ol>
+<li>oid指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值。例如：  <pre><code> <span class="keyword">int</span> * pint;
+ <span class="keyword">void</span> *pvoid;
+ <span class="comment">//不过不能 pint= pvoid; </span>
+ pvoid = pint; 
+ <span class="comment">//如果要将pvoid赋给其他类型指针，则需要强制类型转换如：</span>
+ pint= (<span class="keyword">int</span> *)pvoid;    
+</code></pre></li>
+<li><p>在ANSIC标准中，不允许对void指针进行算术运算如;<del><code>pvoid++</code></del> <del><code>pvoid+=1</code></del><br> 而在GNU（GNU’s NotUnix）中则允许，因为在缺省情况下，GNU认为void*和char*一样,可以对void指针进行算术运算;</p>
+<pre><code> sizeof<span class="comment">(*pvoid) == sizeof(char)
+ pvoid++;
+ pvoid+=1;
+ //为了程序通用
+ (char*)</span>pvoid ++;<span class="comment">//ANSI：正确；GNU：正确</span>
+ (char*)pvoid += <span class="number">1</span>;<span class="comment">//ANSI：错误；GNU：正确</span>
+</code></pre></li>
+</ol>
+<h3 id="void的作用">void的作用</h3>
+<ul>
+<li>对函数返回的限定。当函数不需要返回值时，必须使用void限定。例如： <code>void func(int, int)</code>;<br><em>. 对函数参数的限定。当函数不允许接受参数时，必须使用void限定。例如： <code>int func(void)</code>;
+</em>. 由于void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值，因此还可以用void指针来作为函数形参，这样函数就可以接受任意数据类型的指针作为参数。例如：<pre><code>  <span class="keyword">void</span> * <span class="built_in">memcpy</span>( <span class="keyword">void</span> *dest, <span class="keyword">const</span> <span class="keyword">void</span> *src, size_t len );
+  <span class="keyword">void</span> * <span class="built_in">memset</span>( <span class="keyword">void</span> * buffer, <span class="keyword">int</span> c, size_t num);  
+</code></pre></li>
+</ul>
+<h3 id="void*分析">void*分析</h3>
+<p>函数memcpy和memset是内存操作函数原型，任何类型的指针都可以传入memcpy和memset中，这也真实地体现了内存操作函数的意义，因为它操作的对象仅仅是一片内存里的地址，和char*里存储的是ascii值一样，我们完全不需要知道这个指针指向数据类型，oc里底层函数有大量用char*代表不确定类型指针的例子；</p>
+<pre><code><span class="class"><span class="keyword">Class</span> <span class="title">objc_getClass</span>(<span class="title">const</span> <span class="title">char</span> *<span class="title">name</span>)</span>
+//__bridge将<span class="class"><span class="keyword">Class</span>或者<span class="title">id</span>转换成<span class="title">C</span>中的<span class="title">void</span>指针,<span class="title">objc_getClass</span>获取<span class="title">NSObject</span>的<span class="title">MetaClass</span></span>
+objc_getClass((__bridge void*)[NSObject <span class="class"><span class="keyword">class</span>])</span>
+</code></pre>
       
     </div>
     <footer>
@@ -110,10 +136,10 @@
           <div class="clearfix"></div>
           <nav id="pagination">
   
-    <a href="/2015/02/02/oc_runtime/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+    <a href="/2015/02/11/Objective-C编码类型/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
   
   
-    <a href="/2015/01/28/hello-world/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+    <a href="/2015/02/04/markdown教程/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
@@ -129,7 +155,7 @@
 
   
       <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2015/01/28/hello/"></div>
+<div class="ds-thread" data-thread-key="/2015/02/04/void和void*指针解析/"></div>
 <!-- Duoshuo Comment END -->
   
 </section>

@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello world | 赫拉的诅咒</title>
+  <title>Objective-C type encodings（类型编码） | 赫拉的诅咒</title>
   <meta name="author" content="Stream">
   
-  <meta name="description" content="大家好 — 我是Stream,这是我自己的博客
-导语:
+  <meta name="description" content=".graybox {
+    border-top: 1px solid #9bb3cd;
+    border-left: 1px solid #9bb3cd;
+    margin-bottom: 4em
+}
 
-我会从腾讯空间 陆续将文章转移过来。
-
-第一，认识Markdown
-在刚才的导语里提到，Markdown是一种用来写作轻量级【标记语言】，它的简洁语法替代版本，而不像我们用文字处理软件Word或Pages有大量的排版、文体设置。它使我们专心与">
+.graybox th {
+    padding: .3em .667em;
+  ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello world"/>
+  <meta property="og:title" content="Objective-C type encodings（类型编码）"/>
   <meta property="og:site_name" content="赫拉的诅咒"/>
 
   
@@ -66,10 +68,10 @@
   <div class="post-content">
     <header>
       
-      <time datetime="2015-01-28T06:26:06.000Z"><a href="/2015/01/28/hello/">周三, 1月 28 2015, 2:26:06 下午</a></time>
+      <time datetime="2015-02-11T07:50:38.000Z"><a href="/2015/02/11/Objective-C编码类型/">周三, 2月 11 2015, 3:50:38 下午</a></time>
 
   
-    <h1 class="title">Hello world</h1>
+    <h1 class="title">Objective-C type encodings（类型编码）</h1>
   
 
 
@@ -79,13 +81,59 @@
     </header>
     <div class="entry">
       
-        <h1 id="大家好_—_我是Stream,这是我自己的博客">大家好 — 我是Stream,这是我自己的博客</h1>
-<h3 id="导语:">导语:</h3>
-<blockquote>
-<p>我会从<a href="http://user.qzone.qq.com/258888733/" target="_blank" rel="external">腾讯空间</a> 陆续将文章转移过来。</p>
-</blockquote>
-<h2 id="第一，认识Markdown">第一，认识Markdown</h2>
-<p>在刚才的导语里提到，Markdown是一种用来写作轻量级【标记语言】，它的简洁语法替代版本，而不像我们用文字处理软件<em>Word</em>或<em>Pages</em>有大量的排版、文体设置。它使我们专心与码字，用【标记】语法、来代替常见的版本格式。</p>
+        <hr>
+<style type="text/css">
+.graybox {
+    border-top: 1px solid #9bb3cd;
+    border-left: 1px solid #9bb3cd;
+    margin-bottom: 4em
+}
+
+.graybox th {
+    padding: .3em .667em;
+    background: #93A5BB;
+    font-size: 103%;
+    font-weight: 400;
+    color: #fff;
+    border-bottom: 1px solid #9bb3cd;
+    border-right: 1px solid #9bb3cd
+}
+
+.graybox th p {
+    font-weight: 700;
+    margin-bottom: .33em
+}
+
+.graybox td {
+    padding: .667em;
+    font-size: 100%;
+    vertical-align: middle;
+    border-bottom: 1px solid #9bb3cd;
+    border-right: 1px solid #9bb3cd
+}
+
+.graybox td p {
+    margin-bottom: 0
+}
+
+.graybox td p+p {
+    margin-top: .417em
+}
+
+.graybox td p+p+p {
+    margin-top: .417em
+}
+
+.graybox.revision-history td {
+    vertical-align: top
+}
+</style>
+
+
+
+<table class="graybox" border="0" cellspacing="0" cellpadding="5"><tbody><tr><th scope="col" class="TableHeading_TableRow_TableCell"><p>Code</p></th><th scope="col" class="TableHeading_TableRow_TableCell"><p>Meaning</p></th></tr><tr><td scope="row"><p><code>c</code></p></td><td><p>A <code>char</code></p></td></tr><tr><td scope="row"><p><code>i</code></p></td><td><p>An <code>int</code></p></td></tr><tr><td scope="row"><p><code>s</code></p></td><td><p>A <code>short</code></p></td></tr><tr><td scope="row"><p><code>l</code></p></td><td><p>A <code>long</code></p><p><code>l</code> is treated as a 32-bit quantity on 64-bit programs.</p></td></tr><tr><td scope="row"><p><code>q</code></p></td><td><p>A <code>long long</code></p></td></tr><tr><td scope="row"><p><code>C</code></p></td><td><p>An <code>unsigned char</code></p></td></tr><tr><td scope="row"><p><code>I</code></p></td><td><p>An <code>unsigned int</code></p></td></tr><tr><td scope="row"><p><code>S</code></p></td><td><p>An <code>unsigned short</code></p></td></tr><tr><td scope="row"><p><code>L</code></p></td><td><p>An <code>unsigned long</code></p></td></tr><tr><td scope="row"><p><code>Q</code></p></td><td><p>An <code>unsigned long long</code></p></td></tr><tr><td scope="row"><p><code>f</code></p></td><td><p>A <code>float</code></p></td></tr><tr><td scope="row"><p><code>d</code></p></td><td><p>A <code>double</code></p></td></tr><tr><td scope="row"><p><code>B</code></p></td><td><p>A C++ <code>bool</code> or a C99 <code>_Bool</code></p></td></tr><tr><td scope="row"><p><code>v</code></p></td><td><p>A <code>void</code></p></td></tr><tr><td scope="row"><p><code>*</code></p></td><td><p>A character string (<code>char *</code>)</p></td></tr><tr><td scope="row"><p><code>@</code></p></td><td><p>An object (whether statically typed or typed <code>id</code>)</p></td></tr><tr><td scope="row"><p><code>#</code></p></td><td><p>A class object (<code>Class</code>)</p></td></tr><tr><td scope="row"><p><code>:</code></p></td><td><p>A method selector (<code>SEL</code>)</p></td></tr><tr><td scope="row"><p>[<em>array type</em>] </p></td><td><p>An array</p></td></tr><tr><td scope="row"><p>{<em>name=type…</em>}</p></td><td><p>A structure</p></td></tr><tr><td scope="row"><p>(<em>name</em>=<em>type…</em>)</p></td><td><p>A union</p></td></tr><tr><td scope="row"><p><code>b</code>num</p></td><td><p>A bit field of <em>num</em> bits</p></td></tr><tr><td scope="row"><p><code>^</code>type</p></td><td><p>A pointer to <em>type</em></p></td></tr><tr><td scope="row"><p><code>?</code></p></td><td><p>An unknown type (among other things, this code is used for function pointers)</p></td></tr></tbody></table>
+
+<p><strong>markdown的确好用，直接引用html和css</strong></p>
 
       
     </div>
@@ -110,10 +158,10 @@
           <div class="clearfix"></div>
           <nav id="pagination">
   
-    <a href="/2015/02/02/oc_runtime/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+    <a href="/2015/02/18/java和oc之间比较/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
   
   
-    <a href="/2015/01/28/hello-world/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+    <a href="/2015/02/04/void和void*指针解析/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
   
   <div class="clearfix"></div>
 </nav>
@@ -129,7 +177,7 @@
 
   
       <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2015/01/28/hello/"></div>
+<div class="ds-thread" data-thread-key="/2015/02/11/Objective-C编码类型/"></div>
 <!-- Duoshuo Comment END -->
   
 </section>

@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java和oc之间比较 | 赫拉的诅咒</title>
+  <meta name="author" content="Stream">
+  
+  <meta name="description" content="Cocoa是什么，Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，其实就相当于java中的标准API、C++中的标准库。OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对象等。static 标识的类变量定义在接口的外面，类变量只能本类访问，除非提供类方法给外部访问这个类变量@语法是OC特有的一种语法，C是没有的。OC中只有类的成员变量才有访问权限控制，@public、@protected、@private，默认是@protected，类变量、类方法、成员方法是没有访问修饰符的，所有的方法都是public的，所有的类变量都是私有的。OC中的类方法只能类调用，如果使用对象调用就会报错，而java这只是一个警告而已。OC中定义类的@interface和java中的interface不是一回事，OC的@protocol和java中的interface才是一码事。@interface跟java和C++ class关键字差不多，在OC和C++中，都习惯将类定义写在头文件里，而java却根本没有头文件的概念，至于为什么有这样的差别，想是为了OC和C++编译器方便，大多数时候编译器只需要知道头文件类的定义就知道这个类有哪些属性和方法了。get为前缀的方法在OC中有特殊的意义，所以尽量使用成员变量名称来作为getter方法的函数名。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="java和oc之间比较"/>
+  <meta property="og:site_name" content="赫拉的诅咒"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="赫拉的诅咒" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-18T11:05:42.000Z"><a href="/2015/02/18/java和oc之间比较/">周三, 2月 18 2015, 7:05:42 晚上</a></time>
+
+  
+    <h1 class="title">java和oc之间比较</h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <hr>
+<div id="cnblogs_post_body"><ol><br><li><strong style="color: inherit; font-size: 10pt; line-height: 1;"><span style="color: #0000ff;">Cocoa</span></strong><span style="font-size: 10pt; line-height: 1; color: #0000ff;"><strong>是什么</strong>，</span><span style="color: inherit; font-size: 10pt; line-height: 1;">Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，其实就相当于java中的标准API、C++中的标准库。</span><span style="font-size: 10pt; line-height: 1; color: #800080;"><strong>OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。</strong></span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对象等。</span></li><br><li>static 标识的类变量定义在接口的外面，<strong><span style="color: #ff6820;">类变量只能本类访问</span></strong>，除非提供类方法给外部访问这个类变量</li><br><li><strong><span style="color: #ff0000;">@语法是OC特有的一种语法，C是没有的</span></strong>。</li><br><li><strong><span style="color: #388e8e;">OC中只有类的成员变量才有访问权限控制</span></strong>，@public、@protected、@private，默认是@protected，类变量、类方法、成员方法是没有访问修饰符的，<strong><span style="color: #800080;">所有的方法都是public的，所有的类变量都是私有的。</span></strong></li><br><li>OC中的类方法只能类调用，如果使用对象调用就会报错，而java这只是一个警告而已。</li><br><li>OC中定义类的<strong><span style="color: #0000ff;">@interface</span></strong>和java中的interface不是一回事，OC的@protocol和java中的interface才是一码事。@interface跟java和C++ class关键字差不多，在OC和C++中，都习惯将类定义写在头文件里，而java却根本没有头文件的概念，至于为什么有这样的差别，想是为了OC和C++编译器方便，大多数时候编译器只需要知道头文件类的定义就知道这个类有哪些属性和方法了。</li><br><li><strong><span style="color: #00005e;">get为前缀的方法在OC中有特殊的意义</span></strong>，所以尽量使用成员变量名称来作为getter方法的函数名。<br><a id="more"></a><br></li><br><li><strong><span style="color: #ff0000;">OC是动态语言</span></strong>，所以即便是@interface中没有定义的方法在.m文件中实现了也是OK的，一般我们都是给别人提供头文件，这种情况就相当于把方法变相的私有化了，对于我这种喜欢在写代码过程中随时加方法但又不想动头文件的人来说还是比较爽的。</li><br><li><strong style="color: inherit; font-size: 10pt; line-height: 1;"><span style="color: #800080;">在OC中所有对象的存取都是用指针</span></strong><span style="color: inherit; font-size: 10pt; line-height: 1;">，C++中还有引用，OC中没有，我宁愿你强迫我使用一种方法，也不愿你提供给我两种方法我却不知道使用哪一种方法的好。</span></li><br><li><span style="font-size: 10pt; line-height: 1;"><strong><span style="color: #ff0000;">OC的方法定义和调用算是一大“特色”：</span></strong></span></li><br><ol><br><li><strong style="color: inherit; font-size: 10pt; line-height: 1;"><span style="color: #0000ff;">方法的定义</span></strong><span style="color: inherit; font-size: 10pt; line-height: 1;">：-(返回类型) 方法名:(参数1类型)参数1变量 参数2标签:(参数2类型)参数2变量…</span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">[类或者实例的指针方法名: 参数1 标签2: 参数2… …]，</span></li><br><li><span style="font-size: 10pt; line-height: 1; color: inherit;">为了好看，第一个参数一般不加标签名，当然，</span><span style="font-size: 10pt; line-height: 1;"><span style="color: #388e8e;"><strong>标签名都可以隐藏的，但不建议这样做</strong></span></span><span style="font-size: 10pt; line-height: 1; color: inherit;">，因为当你接手了一个离职的人程序，其中的JAVA 程序调用了一个有五个甚至更多的参数的方法，但是你手里没有这个方法的API，那么你很难猜得出来这五个参数到底都干什么用的，但是Objective-C调用的时候，每个参数前面都必须有方法的标签名，这样你便能很容易的从标签名看出这个参数是什么意思。</span></li><br></ol><br><li><strong><span style="color: #ff00ff;">调用类方法：</span></strong></li><br><ol><br><li>[Fraction t];</li><br><li>[[Fraction class] t];</li><br><li>Class clazz=[Fraction class];[clazz t];</li><br><li>class 来自于NSObject，相当于JAVA 中的getClass()方法，也就是获取这个类的Class 对象，</li><br><li>clazz 前面没有<em>，这是因为Class 已经是一个指针。另外这种嵌套调用的方式，也要习<span style="color: inherit; font-size: 10pt; line-height: 1;">惯，这就和JAVA 中的A.b().c()没有什么区别。</span></em></li><br><li><strong><span style="color: #800080;">获取Class 有如下几种方法：</span></strong></li><br><ol><br><li>[类或者对象 class]</li><br><li>[类或者对象 superclasss]</li><br><li>NSClassFromString(类名的字符串形式)</li><br></ol><br><li>你也可以通过如下的函数把Class 转换为字符串形式：</li><br><ol><br><li>NSStringFromClass(Class)</li><br></ol></ol><br><li>OC中自定义类最好显示继承NSObject，可以获得alloc、init、release等方法。</li><br><li><strong><span style="color: #ff6820;">OC中使用nil表示null</span><span style="color: #388e8e;">，但跟java中的null还是有区别的，java中调用null的方法，会报臭名昭著的空指针异常，而OC不会，所以在OC你不必再为空指针而烦恼。</span></strong></li><br><li>Cocoa中提供的很多函数和java中的api有很大的不一样，<strong><span style="color: #800080;">java是纯面向对象的，所有的方法都必须在类中定义，但OC是兼容C语言的，所以C中的面向过程思想在OC中也是行得通的，因此Cocoa中很多东西都不是对象，而是C语言的函数、结构体，比如NSLog()。</span></strong></li><br><li><strong><span style="color: #ff0000;">对象的初始化</span></strong></li><br><ol><br><li>前面看到实例化对象最多的方法是：Fraction frac=[[Fraction alloc] init];</li><br><li>这跟java不一样，java对象创建只需要new一下，同时调用构造方法（实际上虚拟机层面分为两个步骤：new对象，执行&lt;init&gt;方法（包含构造方法）），但是OC中分为两步：<strong><span style="color: #0000ff;">分配内存（同时给变量赋初值）</span></strong>、<span style="color: #0000ff;"><strong>初始化</strong></span>。</li><br><ul><br><li><span style="font-size: 10pt; line-height: 1; color: inherit;">alloc 是从NSObject 继承而来的类方法，用于给对象分配存储空间，所有的成员变量在此时对确定了自己的内存位置，并被赋初值，整数类型为0，浮点数为0.0，BOOL 为NO，对象类型为nil，alloc 方法返回对象的指针。</span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">init这个方法是从NSObject继承而来的，你可以覆盖它，当然init不是构造方法，只是一个普通方法而已，你甚至可以换成其他方法，只不过我们习惯在方法名前缀加上init。</span></li><br></ul><br><li>还记得java中的构造方法没有返回值吧，所以为了达到java这种效果：Test t = new Test(2);<span style="color: #00005e;"><strong>OC中需要你手动在普通方法（相当于构造方法）中return self。</strong></span></li><br></ol><br><li>NSObject中的<strong><span style="color: #0000ff;">description</span></strong>方法相当于java中Object的toString方法，用于获取对象的字符串表示。唯一不同的是<strong><span style="color: #009300;">OC中需要使用格式化字符串</span><span style="color: #0000ff;">%@</span><span style="color: #009300;">，才会触发description被调用：</span></strong><ol><br><li>Fraction <em>frac=[[Fraction alloc] init];</em></li><br><li>NSLog(@”%@”,frac);</li><br></ol></li><br><li>Objective-C的异常都继承自NSException，当然NSException 本身也继承自NSObject。总体来说，OC中的异常体系和java中的异常体系差不多，唯一的差别就是java中有业务异常，意思就是说你必须捕获他，如果不捕获就会出现编译错误，<strong><span style="color: #800080;">OC中的异常基本上都属于java中的运行时异常</span></strong>，如果你没有捕获，发生了异常程序就会崩溃，在一些循环批任务中尤其要注意。</li><br><li>OC中还有一个特色那就是他的<strong><span style="color: #ff6820;">弱类型id，他可以表示任何对象</span></strong>，实际上应该是利用了指针地址的通用性，由于OC中操作对象都必须是指针，而指针本身又是一串地址，所以通过指针可以指向一切不同的对象。</li><br><li><strong><span style="color: #388e8e;">继承</span></strong>（感觉和java差不多啊）</li><br><li><strong><span style="color: #388e8e;">反射</span></strong>（这个和异常一样，感觉跟java也很像）</li><br><li><strong><span style="color: #388e8e;">选择器</span></strong>（其实就是C中的函数指针，以及java中的Method类）</li><br><li><strong><span style="color: #388e8e;">类别</span></strong>（Category），扩充类的功能，但不可以声明新的成员变量。</li><br><ul><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">类别的应用比较广泛，譬如：第三方的Objective-C 库RegexKitLite 就是对NSString、NSMutableString做的类别，为Objective-C 的字符类型增加了正则表达式的功能。</span></li><br></ul><br><li><strong><span style="color: #ff6820;">字符串</span></strong></li><br><ol><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">-(BOOL) isEqualToString: (NSString) s</span></li><br><li><span style="font-size: 10pt; line-height: 1;"><strong><span style="color: #009300;">比较两个字符串是否相等，与JAVA 一致的地方是==比较指针，比较对象是否相同要用到equal 方法。</span></strong></span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">-(NSMutableString<em>) appendString: (NSString</em>) s</span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">这与JAVA 的StringBuffer 的append 没什么区别。</span></li><br></ol><br><li><strong><span style="color: #800080;">数组</span></strong></li><br><ol><br><li>Cocoa 使用NSArray 表示数组，但是它不能存储基本数据类型、enum、struct、nil，只能存储Objective-C 的对象。</li><br><li>NSArray <em>array=[NSArray arrayWithObjects: @”One”, @”Two”, @”Three”, nil];</em></li><br><li>从这个类方法arrayWithObjects 的定义可以看出，<strong><span style="color: #388e8e;">它使用nil 表示数组元素结束</span></strong>，这也是nil 不能存储在NSArray 中的原因。</li><br><li>NSMutableArray 为长度可变的数组，相当于JAVA 中的List：</li><br><li><strong><span style="color: #0000ff;">NSMutableArray </span></strong>mArray=[NSMutableArray arrayWithCapacity: 10];</li><br><li>[mArray addObject: @”Apple”];//添加数组元素</li><br><li><strong><span style="color: #0000ff;">NSEnumerator </span></strong><em>e = [mArray objectEnumerator];//获取数组的迭代器，相当于JAVA 中的Iterator，reserveObjectEnumerator 用于获取反转之后的数组迭代器。与JAVA 一致的地方是你在使用迭代器时，不能对数组进行添加、删除操作。</em></li><br></ol><br><li><strong><span style="color: #ff0000;">字典（哈希表）</span></strong><ol><br><li><strong><span style="color: #0000ff;">NSDictionary </span></strong>用于存储key-value 的数据结构，与JAVA 中的Map 类似。</li><br><li>NSDictionary dic=[NSDictionary dictionaryWithObjectsAndKeys: @”Apple”, @”A”, @”Google”,@”G”, nil];//dictionaryWithObjectAndKeys 后的可变参数，每两个为一个value-key，以nil 表示结束。</li><br><li>NSLog(@”%@”,[dic objectForKey: @”A”]);//按照指定的key 查询value</li><br><li>同样的有<strong><span style="color: #0000ff;">NSMutableDictionary</span></strong> 表示长度可变的字典。</li><br><li>NSMutableDictionary <em>mDic=[NSMutableDictionary dictionaryWithCapacity: 10];</em></li><br><li>[mDic setObject: @”Apple” forKey: @”A”];//添加value-key 对</li><br></ol></li><br><li><span style="color: #800080;"><strong>哈希Set</strong></span><ol><br><li>NSSet 表示以hash 方式计算存储位置的集合，与JAVA 中的HashSet 是一致的。</li><br><li>在NSSet 中的每个对象都有一个唯一的hash 值，重复的对象将只能保留一个。因此，这引出了Objective-C中的对象比较问题，这需要你实现从NSObject 继承而来的如下两个方法：</li><br><ol><br><li>- (BOOL) <strong><span style="color: #0000ff;">isEqual</span></strong>: (id) anObject;</li><br><li>- (NSUInteger) <strong><span style="color: #0000ff;">hash</span></strong>;</li><br></ol><br><li>这与JAVA 的对象比较没有什么区别，两个相等的对象必须有相同的hashCode，所以这两个方法必须同时实现。</li><br><li>同样的，<strong><span style="color: #0000ff;">NSMutableSet </span></strong>表示长度可变的哈希Set。</li><br></ol></li><br><li><strong><span style="color: #ff6820;">封装类（相当于java的包装器）</span></strong><ol><br><li>前面的几个容器类的对象都不能存放基本数据结构、enum、struct、nil，怎么办呢？</li><br><li>在JAVA中我们知道所有的基本数据类型都有对应的封装类，例如：int—-Integer、boolean—-Boolean，使用封装类可以把基本数据类型包装为对象，而封装类本身又有方法可以返回原来的基本数据类型。Cocoa 使用<strong><span style="color: #0000ff;">NSValue </span></strong>作为封装类。</li><br><li>NSRect rect=NSMakeRect(1,2,30,50);//这个是在前面提到过的一个表示矩形的结构体</li><br><li>NSValue v=[NSValue valueWithBytes: &amp;rect objCType: @encode(NSRect)];</li><br><li>//java与oc之间的比较 valueWithBytes 要求传入包装数据的地址，也就是变量中存储的数据的首地址，我们依然使用C 语言的&amp;作为地址运算符，计算指针存储的首地址。</li><br><li>//objCType 要求传入用于描述数据的类型、大小的字符串，使用@encode 指令包装数据所属的类型。</li><br><li>对于基本数据类型，你可以使用简便的<strong><span style="color: #0000ff;">NSNumber </span></strong>来封装，它是NSValue 的子类。</li><br><li>如果你想存储空值到集合类，可以使用NSNull，它使用NSNull <em>n =[NSNull null];的方式创建。</em></li><br></ol></li><br><li>日期类型</li><br><ul><br><li><span style="font-size: 10pt; line-height: 1; color: inherit;">Cocoa 中使用NSDate 类型表示日期。</span></li><br></ul><br><li>数据缓冲区（其实就是java中的字节数组）<br><ul><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">Cocoa 中使用NSData 类型来实现缓冲区，用于存储二进制的数据类型，譬如：从网络下载回来的文件等。</span></li><br><li><strong><span style="color: #0000ff;">NSData </span></strong>是长度不可变的数据缓冲区，还有一个<strong><span style="color: #0000ff;">NSMutableData </span></strong>用来存储长度可变的数据缓冲区。</li><br></ul><br></li><br><li><strong><span style="color: #800080;">写入和读取属性（简直就是java序列化和反序列化的翻版）</span></strong><ol><br><li>在iPhone 的.ipa 文件中，经常可以看到<em>.plist 文件，它保存了程序的相关属性，叫做属性列表。其实它就是NSArray、NSDictionary、NSString、NSData 持久化之后的文件。</em></li><br><li>这几个类型都有一个成员方法 <strong><span style="color: #0000ff;">writeToFile</span></strong>: (NSString) file atomically: BOOL 用于将自己写入到一个文件。atomically 为YES 表示文件先存储到临时文件区，如果文件保存成功，再替换掉原始文件，这样的好处是可以防止在保存文件过程中出错，但是仅适用于小文件，因为你相当于是在临时文件存储区也放了一份，再加上原始文件，就是两份文件，如果文件比较大，将会占用较多的用户的磁盘空间。</li><br><li>如果你要持久化的类型不是上述的数组、字典、缓冲区，那该怎么办呢？Objective-C 中也有和JAVA 一样的序列化、反序列化支持，使用<strong><span style="color: #0000ff;">NSCoding</span></strong> 协议。NSCoding 协议定义了如下两个方法：</li><br><ul><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">-(void) </span><span style="font-size: 10pt; line-height: 1;"><span style="color: #0000ff;"><strong>encodeWithCoder</strong></span></span><span style="color: inherit; font-size: 10pt; line-height: 1;">: (NSCoder<em>) coder;</em></span></li><br><li><span style="font-size: 10pt; line-height: 1; color: inherit;">-(id) initWithCoder: (NSCoder) decoder;</span></li><br><li><span style="font-size: 10pt; line-height: 1; color: inherit;">第一个方法相当于<strong>编码对象</strong>，第二个方法是解码回对象，也就相当于给类型定义了一个新的init 方法而已。</span></li><br></ul><br></ol></li><br><li>对象的复制<br><ul><br><li>对象的复制就相当于JAVA 中的clone()方法，也就是对象的<strong><span style="color: #ff6820;">深度复制</span></strong>，所谓深度复制就是重新分配一个存储空间，并将原对象的内容都复制过来，从这些描述可以看出，复制也会分配空间，那就是你要对复制出来的对象release，就是前面所说的alloc、new、copy 操作创建的对象，要手工release。</li><br><li>Objective-C 中的一个对象是否可以被复制，要看它的类型是否遵循NSCopying 协议，这个协议中有个复制方法-(id) copyWithZone: (<em>NSZone) zone 需要我们去实现。</em></li><br></ul><br></li><br><li><strong><span style="color: #ff0000;">多线程</span></strong><ol><br><li>Objective-C 的多线程编程与JAVA 语言极其类似分为原始的线程操作、线程池两种，后者其实就是使用队列等机制对前者的封装。</li><br><li>JAVA 也一样，原始的线程操作使用Thread 类，线程池的操作使用java.util.concurrent.中的类库。</li><br><li>Objective-C 中<strong><span style="color: #0000ff;">NSThread </span></strong>类型表示线程，<strong><span style="color: #388e8e;">NSCondition </span></strong>用于执行同步操作，在功能和用法上相当于JAVA 中的java.util.concurrent.*包中的Lock 对象。</li><br><li>另外，Objective-C 也支持@synchronized 指令做代码同步，写法也和JAVA 中的很相似。</li><br><li>另外比较有趣的是，如果你想更新UI 上的某一个部件，就需要在发起的新线程里调用UI 所在的主线程上的一个方法，<strong><span style="color: #800080;">新线程不能直接访问主线程的方法，需要在run 方法中使用如下的方法：</span></strong></li><br><li>- (void) <strong><span style="color: #0000ff;">performSelectorOnMainThread</span></strong>: (SEL) aSelector withObject: (id) arg waitUntilDone: (BOOL) wait</li><br><li>如果对java的swing熟悉的话，应该知道在UI界，大多数更新界面的都必须在一个单线程中执行，因为如果更新界面是多线程的话会很难处理的，java swing处理的方法是更新界面的代码放在专门更新UI的线程下执行，这里IOS也是这么一个思想。</li><br><li>Objective-C 使用 <strong><span style="color: #0000ff;">NSOperation</span></strong>、NSOperationQueue 两个类型实现线程池的操作，<strong><span style="color: #388e8e;">NSOpertion就好比JAVA 中的Runnable</span></strong>，其中的main（名字有点儿奇怪）方法也就是你要执行的操作，NSOperationQueue 是一个线程池队列，你只需要把NSOperation 添加到NSOperationQueue，队列就会retain 你的NSOperation，然后执行其中的操作，直到执行完毕。</li><br><li>队列中会有多个操作，队列会按照你添加的顺序逐个执行，也就说<strong><span style="color: #993366;">队列中的任务是串行的。</span></strong></li><br><li>跟java一样，如果线程池可以满足你的业务需求，尽量使用线程池，而不是原始的NSThread，因为使用线程池屏蔽了许多线程自身需要处理的问题，代码也更加简洁。</li><br></ol></li><br><li><strong><span style="color: #ff0000;">KVC 与KVO（这个话题真高级）</span></strong><ol><br><li>KVC 是 NSKeyValueCoding 的缩写，它是Foundation Kit 中的一个NSObject 的Category，作用可以类比JAVA 中的反射机制，就是<span style="color: #ff6820;"><strong>动态访问一个对象中的属性。</strong></span></li><br><li>KVC 在解析key 的字符串的时候，是会比正常调用setter、getter 要慢的，而且编译器无法在编译器对你的方法调用做出检查（因为你的属性名都是字符串，只有运行时才会知道你有没有写错），出错的几率也会提高，所以请不要随意使用KVC，而省去setter、getter 方法。KVC 一般用于动态绑定，也就是运行时才能确定谁调用哪个方法，编译期并不确定。</li><br><li>KVO就是 NSKeyValueObserving的缩写，它也是Foundation Kit中的一个NSObject的Category，KVO 基于KVC 实现，基于<span style="color: #ff6820;"><strong>观察者设计模式</strong></span>（Observer Pattern）实现的一种通知机制，可以类比JAVA 中的JMS，通过订阅的方式，实现了两个对象之间的解耦，但又可以让他们相互调用。</li><br></ol></li><br><li>谓词 NSPredicateCocoa&nbsp;</li><br></ol><br><ul><br><ul><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">提供了NSPredicate 用于指定过滤条件</span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">谓词是指在计算机中表示计算真假值的函数，它使用起来有点儿像SQL 的查询条件，主要用于从集合中分拣出符合条件的对象，也可以用于字符串的正则匹配。</span></li><br></ul><br></ul><br><p>&nbsp;</p></div>
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+  
+    <a href="/2015/02/11/Objective-C编码类型/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2015/02/18/java和oc之间比较/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2015 Stream
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
+<script src="/js/gallery.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"null"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>

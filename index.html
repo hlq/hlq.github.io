@@ -88,10 +88,438 @@
   <div class="post-content">
     <header>
       
-      <time datetime="2015-02-03T06:34:52.000Z"><a href="/2015/02/03/LayoutInflater.inflate()/">周二, 2月 3 2015, 2:34:52 下午</a></time>
+      <time datetime="2015-02-18T11:05:42.000Z"><a href="/2015/02/18/java和oc之间比较/">周三, 2月 18 2015, 7:05:42 晚上</a></time>
 
   
-    <h1 class="title"><a href="/2015/02/03/LayoutInflater.inflate()/">LayoutInflater.inflate()</a></h1>
+    <h1 class="title"><a href="/2015/02/18/java和oc之间比较/">java和oc之间比较</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <hr>
+<div id="cnblogs_post_body"><ol><br><li><strong style="color: inherit; font-size: 10pt; line-height: 1;"><span style="color: #0000ff;">Cocoa</span></strong><span style="font-size: 10pt; line-height: 1; color: #0000ff;"><strong>是什么</strong>，</span><span style="color: inherit; font-size: 10pt; line-height: 1;">Cocoa是使用OC语言编写的工具包，里面有大量的类库、结构体，其实就相当于java中的标准API、C++中的标准库。</span><span style="font-size: 10pt; line-height: 1; color: #800080;"><strong>OC中没有命名空间的概念，所以使用加前缀来防止命名冲突，因此你会看到大量的以NS 为前缀的类名、结构体、枚举等。</strong></span></li><br><li><span style="color: inherit; font-size: 10pt; line-height: 1;">Cocoa框架由Foundation Kit、App Kit两部分组成，前者是基础工具库，后者主要是UI库、高级对象等。</span></li><br><li>static 标识的类变量定义在接口的外面，<strong><span style="color: #ff6820;">类变量只能本类访问</span></strong>，除非提供类方法给外部访问这个类变量</li><br><li><strong><span style="color: #ff0000;">@语法是OC特有的一种语法，C是没有的</span></strong>。</li><br><li><strong><span style="color: #388e8e;">OC中只有类的成员变量才有访问权限控制</span></strong>，@public、@protected、@private，默认是@protected，类变量、类方法、成员方法是没有访问修饰符的，<strong><span style="color: #800080;">所有的方法都是public的，所有的类变量都是私有的。</span></strong></li><br><li>OC中的类方法只能类调用，如果使用对象调用就会报错，而java这只是一个警告而已。</li><br><li>OC中定义类的<strong><span style="color: #0000ff;">@interface</span></strong>和java中的interface不是一回事，OC的@protocol和java中的interface才是一码事。@interface跟java和C++ class关键字差不多，在OC和C++中，都习惯将类定义写在头文件里，而java却根本没有头文件的概念，至于为什么有这样的差别，想是为了OC和C++编译器方便，大多数时候编译器只需要知道头文件类的定义就知道这个类有哪些属性和方法了。</li><br><li><strong><span style="color: #00005e;">get为前缀的方法在OC中有特殊的意义</span></strong>，所以尽量使用成员变量名称来作为getter方法的函数名。<br>
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/18/java和oc之间比较/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/18/java和oc之间比较/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/18/java和oc之间比较/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-11T07:50:38.000Z"><a href="/2015/02/11/Objective-C编码类型/">周三, 2月 11 2015, 3:50:38 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/11/Objective-C编码类型/">Objective-C type encodings（类型编码）</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <hr>
+<style type="text/css">
+.graybox {
+    border-top: 1px solid #9bb3cd;
+    border-left: 1px solid #9bb3cd;
+    margin-bottom: 4em
+}
+
+.graybox th {
+    padding: .3em .667em;
+    background: #93A5BB;
+    font-size: 103%;
+    font-weight: 400;
+    color: #fff;
+    border-bottom: 1px solid #9bb3cd;
+    border-right: 1px solid #9bb3cd
+}
+
+.graybox th p {
+    font-weight: 700;
+    margin-bottom: .33em
+}
+
+.graybox td {
+    padding: .667em;
+    font-size: 100%;
+    vertical-align: middle;
+    border-bottom: 1px solid #9bb3cd;
+    border-right: 1px solid #9bb3cd
+}
+
+.graybox td p {
+    margin-bottom: 0
+}
+
+.graybox td p+p {
+    margin-top: .417em
+}
+
+.graybox td p+p+p {
+    margin-top: .417em
+}
+
+.graybox.revision-history td {
+    vertical-align: top
+}
+</style>
+
+
+
+<table class="graybox" border="0" cellspacing="0" cellpadding="5"><tbody><tr><th scope="col" class="TableHeading_TableRow_TableCell"><p>Code</p></th><th scope="col" class="TableHeading_TableRow_TableCell"><p>Meaning</p></th></tr><tr><td scope="row"><p><code>c</code></p></td><td><p>A <code>char</code></p></td></tr><tr><td scope="row"><p><code>i</code></p></td><td><p>An <code>int</code></p></td></tr><tr><td scope="row"><p><code>s</code></p></td><td><p>A <code>short</code></p></td></tr><tr><td scope="row"><p><code>l</code></p></td><td><p>A <code>long</code></p><p><code>l</code> is treated as a 32-bit quantity on 64-bit programs.</p></td></tr><tr><td scope="row"><p><code>q</code></p></td><td><p>A <code>long long</code></p></td></tr><tr><td scope="row"><p><code>C</code></p></td><td><p>An <code>unsigned char</code></p></td></tr><tr><td scope="row"><p><code>I</code></p></td><td><p>An <code>unsigned int</code></p></td></tr><tr><td scope="row"><p><code>S</code></p></td><td><p>An <code>unsigned short</code></p></td></tr><tr><td scope="row"><p><code>L</code></p></td><td><p>An <code>unsigned long</code></p></td></tr><tr><td scope="row"><p><code>Q</code></p></td><td><p>An <code>unsigned long long</code></p></td></tr><tr><td scope="row"><p><code>f</code></p></td><td><p>A <code>float</code></p></td></tr><tr><td scope="row"><p><code>d</code></p></td><td><p>A <code>double</code></p></td></tr><tr><td scope="row"><p><code>B</code></p></td><td><p>A C++ <code>bool</code> or a C99 <code>_Bool</code></p></td></tr><tr><td scope="row"><p><code>v</code></p></td><td><p>A <code>void</code></p></td></tr><tr><td scope="row"><p><code>*</code></p></td><td><p>A character string (<code>char *</code>)</p></td></tr><tr><td scope="row"><p><code>@</code></p></td><td><p>An object (whether statically typed or typed <code>id</code>)</p></td></tr><tr><td scope="row"><p><code>#</code></p></td><td><p>A class object (<code>Class</code>)</p></td></tr><tr><td scope="row"><p><code>:</code></p></td><td><p>A method selector (<code>SEL</code>)</p></td></tr><tr><td scope="row"><p>[<em>array type</em>] </p></td><td><p>An array</p></td></tr><tr><td scope="row"><p>{<em>name=type…</em>}</p></td><td><p>A structure</p></td></tr><tr><td scope="row"><p>(<em>name</em>=<em>type…</em>)</p></td><td><p>A union</p></td></tr><tr><td scope="row"><p><code>b</code>num</p></td><td><p>A bit field of <em>num</em> bits</p></td></tr><tr><td scope="row"><p><code>^</code>type</p></td><td><p>A pointer to <em>type</em></p></td></tr><tr><td scope="row"><p><code>?</code></p></td><td><p>An unknown type (among other things, this code is used for function pointers)</p></td></tr></tbody></table>
+
+<p><strong>markdown的确好用，直接引用html和css</strong></p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/11/Objective-C编码类型/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/11/Objective-C编码类型/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/11/Objective-C编码类型/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-04T11:10:42.000Z"><a href="/2015/02/04/void和void*指针解析/">周三, 2月 4 2015, 7:10:42 晚上</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/04/void和void*指针解析/">void及void*指针解析</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <hr>
+<h3 id="void的含义:">void的含义:</h3>
+<p>void即“无类型”，void *则为“无类型指针”，可以指向任何数据类型。</p>
+<h3 id="void指针使用规范">void指针使用规范</h3>
+<ol>
+<li>oid指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值。例如：  <pre><code> <span class="keyword">int</span> * pint;
+ <span class="keyword">void</span> *pvoid;
+ <span class="comment">//不过不能 pint= pvoid; </span>
+ pvoid = pint; 
+ <span class="comment">//如果要将pvoid赋给其他类型指针，则需要强制类型转换如：</span>
+ pint= (<span class="keyword">int</span> *)pvoid;    
+</code></pre></li>
+<li><p>在ANSIC标准中，不允许对void指针进行算术运算如;<del><code>pvoid++</code></del> <del><code>pvoid+=1</code></del><br> 而在GNU（GNU’s NotUnix）中则允许，因为在缺省情况下，GNU认为void*和char*一样,可以对void指针进行算术运算;</p>
+<pre><code> sizeof<span class="comment">(*pvoid) == sizeof(char)
+ pvoid++;
+ pvoid+=1;
+ //为了程序通用
+ (char*)</span>pvoid ++;<span class="comment">//ANSI：正确；GNU：正确</span>
+ (char*)pvoid += <span class="number">1</span>;<span class="comment">//ANSI：错误；GNU：正确</span>
+</code></pre></li>
+</ol>
+<h3 id="void的作用">void的作用</h3>
+<ul>
+<li>对函数返回的限定。当函数不需要返回值时，必须使用void限定。例如： <code>void func(int, int)</code>;<br><em>. 对函数参数的限定。当函数不允许接受参数时，必须使用void限定。例如： <code>int func(void)</code>;
+</em>. 由于void指针可以指向任意类型的数据，亦即可用任意数据类型的指针对void指针赋值，因此还可以用void指针来作为函数形参，这样函数就可以接受任意数据类型的指针作为参数。例如：<pre><code>  <span class="keyword">void</span> * <span class="built_in">memcpy</span>( <span class="keyword">void</span> *dest, <span class="keyword">const</span> <span class="keyword">void</span> *src, size_t len );
+  <span class="keyword">void</span> * <span class="built_in">memset</span>( <span class="keyword">void</span> * buffer, <span class="keyword">int</span> c, size_t num);  
+</code></pre></li>
+</ul>
+<h3 id="void*分析">void*分析</h3>
+<p>函数memcpy和memset是内存操作函数原型，任何类型的指针都可以传入memcpy和memset中，这也真实地体现了内存操作函数的意义，因为它操作的对象仅仅是一片内存里的地址，和char*里存储的是ascii值一样，我们完全不需要知道这个指针指向数据类型，oc里底层函数有大量用char*代表不确定类型指针的例子；</p>
+<pre><code><span class="class"><span class="keyword">Class</span> <span class="title">objc_getClass</span>(<span class="title">const</span> <span class="title">char</span> *<span class="title">name</span>)</span>
+//__bridge将<span class="class"><span class="keyword">Class</span>或者<span class="title">id</span>转换成<span class="title">C</span>中的<span class="title">void</span>指针,<span class="title">objc_getClass</span>获取<span class="title">NSObject</span>的<span class="title">MetaClass</span></span>
+objc_getClass((__bridge void*)[NSObject <span class="class"><span class="keyword">class</span>])</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/04/void和void*指针解析/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/04/void和void*指针解析/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/04/void和void*指针解析/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-04T08:43:06.000Z"><a href="/2015/02/04/markdown教程/">周三, 2月 4 2015, 4:43:06 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/04/markdown教程/">Markdown 教程</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p><img src="http://markdown.tw/images/208x128.png" alt="Markdown"></p>
+<p><strong>NOTE:</strong> This is Traditional Chinese Edition Document of<br>Markdown Syntax. If you are seeking for English Edition<br>Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown: Syntax</a>.</p>
+<h1 id="Markdown:_Syntax">Markdown: Syntax</h1>
+<ul>
+<li><a href="#overview">概述</a><ul>
+<li><a href="#philosophy">哲學</a></li>
+<li><a href="#html">行內 HTML</a></li>
+<li><a href="#autoescape">特殊字元自動轉換</a></li>
+</ul>
+</li>
+<li><a href="#block">區塊元素</a><ul>
+<li><a href="#p">段落和換行</a></li>
+<li><a href="#header">標題</a></li>
+<li><a href="#blockquote">區塊引言</a></li>
+<li><a href="#list">清單</a></li>
+<li><a href="#precode">程式碼區塊</a></li>
+<li><a href="#hr">分隔線</a></li>
+</ul>
+</li>
+<li><a href="#span">區段元素</a><ul>
+<li><a href="#link">連結</a></li>
+<li><a href="#em">強調</a></li>
+<li><a href="#code">程式碼</a></li>
+<li><a href="#img">圖片</a></li>
+</ul>
+</li>
+<li><a href="#misc">其它</a><ul>
+<li><a href="#backslash">跳脫字元</a></li>
+<li><a href="#autolink">自動連結</a></li>
+</ul>
+</li>
+<li><a href="#acknowledgement">感謝</a></li>
+</ul>
+<p><strong>注意：</strong>這份文件是用 Markdown 寫的，你可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md" target="_blank" rel="external">看看它的原始檔</a> 。</p>
+<hr>
+<h2 id="overview">概述</h2>
+
+<h3 id="philosophy">哲學</h3>
+
+<p>Markdown 的目標是實現「易讀易寫」。</p>
+<p>不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>、<a href="http://textism.com/tools/textile/" target="_blank" rel="external">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" target="_blank" rel="external">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" target="_blank" rel="external">EtText</a>，然而最大靈感來源其實是純文字的電子郵件格式。</p>
+<p>因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像*強調*。Markdown 的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。</p>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/04/markdown教程/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/04/markdown教程/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/04/markdown教程/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-04T08:41:02.000Z"><a href="/2015/02/04/objective-c格式化输出/">周三, 2月 4 2015, 4:41:02 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/04/objective-c格式化输出/">objective-c 格式化输出</a></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <p>所有的类都是NSObject的子类<br>OC中没有包的概念，OC中只有四种简单数据类型<br><code>int、float、double和char</code>  </p>
+<p>扩展类型:<br><code>long、long long、short、unsigned和signed</code></p>
+<p>占位符：  </p>
+<ol>
+<li>char   %c </li>
+<li>short int  %hi %hx %ho </li>
+<li>unsigned short int %hu %hx %ho </li>
+<li>int  %i %x %o </li>
+<li>unsigned int %u %x %o </li>
+<li>long int  %li %lx %lo </li>
+<li>unsigned long int  %lu %lx %lo </li>
+<li>long long int  %lli %llx &amp;llo </li>
+<li>unsigned long long int  %llu %llx %llo </li>
+<li>float %f %e %g %a </li>
+<li>double  %f %e %g %a </li>
+<li>long double %Lf $Le %Lg </li>
+<li>id 指针（这里间接说明id是一个指向objc_object结构体的指针） %p </li>
+<li>bool %d 0表真，1表假 </li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/04/objective-c格式化输出/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://hlq.github.io/2015/02/04/objective-c格式化输出/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/04/objective-c格式化输出/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-03T06:36:07.000Z"><a href="/2015/02/03/LayoutInflater.inflate()/">周二, 2月 3 2015, 2:36:07 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/03/LayoutInflater.inflate()/">LayoutInflater.inflate()分析</a></h1>
   
 
 
@@ -188,104 +616,6 @@
           <div class="alignright"> 
             <a href="http://hlq.github.io/2015/02/02/oc_runtime/#comment" class="comment-link">
               <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/02/oc_runtime/">&nbsp;
-              </span>
-            </a>
-          </div>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-      <time datetime="2015-02-02T14:59:05.000Z"><a href="/2015/02/02/markdown教程/">周一, 2月 2 2015, 10:59:05 晚上</a></time>
-
-  
-    <h1 class="title"><a href="/2015/02/02/markdown教程/">Markdown 教程</a></h1>
-  
-
-
-
-<div class="clear"></div>
-      
-    </header>
-    <div class="entry">
-      
-        <p><img src="http://markdown.tw/images/208x128.png" alt="Markdown"></p>
-<p><strong>NOTE:</strong> This is Traditional Chinese Edition Document of<br>Markdown Syntax. If you are seeking for English Edition<br>Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">Markdown: Syntax</a>.</p>
-<h1 id="Markdown:_Syntax">Markdown: Syntax</h1>
-<ul>
-<li><a href="#overview">概述</a><ul>
-<li><a href="#philosophy">哲學</a></li>
-<li><a href="#html">行內 HTML</a></li>
-<li><a href="#autoescape">特殊字元自動轉換</a></li>
-</ul>
-</li>
-<li><a href="#block">區塊元素</a><ul>
-<li><a href="#p">段落和換行</a></li>
-<li><a href="#header">標題</a></li>
-<li><a href="#blockquote">區塊引言</a></li>
-<li><a href="#list">清單</a></li>
-<li><a href="#precode">程式碼區塊</a></li>
-<li><a href="#hr">分隔線</a></li>
-</ul>
-</li>
-<li><a href="#span">區段元素</a><ul>
-<li><a href="#link">連結</a></li>
-<li><a href="#em">強調</a></li>
-<li><a href="#code">程式碼</a></li>
-<li><a href="#img">圖片</a></li>
-</ul>
-</li>
-<li><a href="#misc">其它</a><ul>
-<li><a href="#backslash">跳脫字元</a></li>
-<li><a href="#autolink">自動連結</a></li>
-</ul>
-</li>
-<li><a href="#acknowledgement">感謝</a></li>
-</ul>
-<p><strong>注意：</strong>這份文件是用 Markdown 寫的，你可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md" target="_blank" rel="external">看看它的原始檔</a> 。</p>
-<hr>
-<h2 id="overview">概述</h2>
-
-<h3 id="philosophy">哲學</h3>
-
-<p>Markdown 的目標是實現「易讀易寫」。</p>
-<p>不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 <a href="http://docutils.sourceforge.net/mirror/setext.html" target="_blank" rel="external">Setext</a>、<a href="http://www.aaronsw.com/2002/atx/" target="_blank" rel="external">atx</a>、<a href="http://textism.com/tools/textile/" target="_blank" rel="external">Textile</a>、<a href="http://docutils.sourceforge.net/rst.html" target="_blank" rel="external">reStructuredText</a>、<a href="http://www.triptico.com/software/grutatxt.html" target="_blank" rel="external">Grutatext</a> 和 <a href="http://ettext.taint.org/doc/" target="_blank" rel="external">EtText</a>，然而最大靈感來源其實是純文字的電子郵件格式。</p>
-<p>因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像*強調*。Markdown 的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。</p>
-
-      
-    </div>
-    <footer>
-      
-        <div class="alignleft">
-            <a href="/2015/02/02/markdown教程/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
-        </div>
-        
-        
-          <div class="alignright"> 
-            <a href="http://hlq.github.io/2015/02/02/markdown教程/#comment" class="comment-link">
-              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/02/markdown教程/">&nbsp;
               </span>
             </a>
           </div>
